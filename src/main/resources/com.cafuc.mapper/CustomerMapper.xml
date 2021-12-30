@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wangze.core.dao.CustomerDao">
+<mapper namespace="com.cafuc.core.dao.CustomerDao">
     <sql id="selectCustomerListWhere">
         <where>
             <if test="cust_name != null">
@@ -20,8 +20,8 @@
         </where>
     </sql>
     <!--	查询客户列表-->
-    <select id="selectCustomerList" parameterType="com.wangze.core.entity.Customer"
-            resultType="com.wangze.core.entity.Customer">
+    <select id="selectCustomerList" parameterType="com.cafuc.core.entity.Customer"
+            resultType="com.cafuc.core.entity.Customer">
         SELECT
         cust_id,
         cust_name,
@@ -70,12 +70,12 @@
         </if>
     </select>
     <!-- 查询客户总数 -->
-    <select id="selectCustomerListCount" parameterType="com.wangze.core.entity.Customer" resultType="Integer">
+    <select id="selectCustomerListCount" parameterType="com.cafuc.core.entity.Customer" resultType="Integer">
         select count(*) from customer
         <include refid="selectCustomerListWhere"/>
     </select>
     <!-- 添加客户 -->
-    <insert id="createCustomer" parameterType="com.wangze.core.entity.Customer">
+    <insert id="createCustomer" parameterType="com.cafuc.core.entity.Customer">
         insert into customer(cust_name,
                              cust_user_id,
                              cust_create_id,
@@ -104,13 +104,13 @@
 
     <!-- 根据id获取客户信息 -->
     <select id="getCustomerById" parameterType="Integer"
-            resultType="com.wangze.core.entity.Customer">
+            resultType="com.cafuc.core.entity.Customer">
         select *
         from customer
         where cust_id = #{id}
     </select>
     <!-- 更新客户 -->
-    <update id="updateCustomer" parameterType="com.wangze.core.entity.Customer">
+    <update id="updateCustomer" parameterType="com.cafuc.core.entity.Customer">
         update customer
         <set>
             <if test="cust_name!=null">
