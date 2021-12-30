@@ -1,4 +1,4 @@
-package com.wangze.core.entity;
+package com.cafuc.core.entity;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;

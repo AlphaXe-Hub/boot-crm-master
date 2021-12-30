@@ -1,20 +1,18 @@
-package com.wangze.core.service;
+package com.cafuc.core.service;
 
-import com.wangze.common.utils.Page;
-import com.wangze.core.dao.CustomerDao;
-import com.wangze.core.entity.Customer;
+import com.cafuc.common.utils.Page;
+import com.cafuc.core.dao.CustomerDao;
+import com.cafuc.core.entity.Customer;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
 
 /**
- * @author: 王泽20
- * 客户管理
+ * @author: xcz
  */
 @Transactional
 @Service("customerService")

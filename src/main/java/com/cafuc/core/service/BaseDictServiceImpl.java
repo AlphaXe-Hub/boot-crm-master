@@ -1,7 +1,7 @@
-package com.wangze.core.service;
+package com.cafuc.core.service;
 
-import com.wangze.core.dao.BaseDictDao;
-import com.wangze.core.entity.BaseDict;
+import com.cafuc.core.dao.BaseDictDao;
+import com.cafuc.core.entity.BaseDict;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

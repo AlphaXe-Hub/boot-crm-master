@@ -1,6 +1,6 @@
-package com.wangze.core.interceptor;
+package com.cafuc.core.interceptor;
 
-import com.wangze.core.entity.User;
+import com.cafuc.core.entity.User;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * @author: 王泽20
+ * @author: xcz
  */
 @Component
 public class LoginInterceptor implements HandlerInterceptor {

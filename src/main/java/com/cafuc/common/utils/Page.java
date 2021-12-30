@@ -1,4 +1,4 @@
-package com.wangze.common.utils;
+package com.cafuc.common.utils;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package com.wangze.core.dao;
+package com.cafuc.core.dao;
 
-import com.wangze.core.entity.BaseDict;
+import com.cafuc.core.entity.BaseDict;
 
 import java.util.List;
 

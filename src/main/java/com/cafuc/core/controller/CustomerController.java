@@ -1,16 +1,13 @@
-package com.wangze.core.controller;
+package com.cafuc.core.controller;
 
-import com.wangze.common.utils.Page;
-import com.wangze.core.entity.BaseDict;
-import com.wangze.core.entity.Customer;
-import com.wangze.core.entity.User;
-import com.wangze.core.service.BaseDictService;
-import com.wangze.core.service.CustomerService;
+import com.cafuc.common.utils.Page;
+import com.cafuc.core.entity.BaseDict;
+import com.cafuc.core.entity.Customer;
+import com.cafuc.core.entity.User;
+import com.cafuc.core.service.BaseDictService;
+import com.cafuc.core.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,15 +35,16 @@ public class CustomerController {
     private String INDUSTRY_TYPE;
     @Value("${customer.level.type}")
     private String LEVEL_TYPE;
+
     @RequestMapping(value = "/customer/list")
-    public String list(@RequestParam(defaultValue="1")Integer page,
-                       @RequestParam(defaultValue="10")Integer rows,
+    public String list(@RequestParam(defaultValue = "1") Integer page,
+                       @RequestParam(defaultValue = "10") Integer rows,
                        String custName, String custSource, String custIndustry,
                        String custLevel, Model model) {
 
 
         Page<Customer> customers = customerService.findCustomerList(page, rows, custName,
-                        custSource, custIndustry, custLevel);
+                custSource, custIndustry, custLevel);
         model.addAttribute("page", customers);
 
         List<BaseDict> fromType = baseDictService.findBaseDictByTypeCode(FROM_TYPE);
@@ -72,25 +70,27 @@ public class CustomerController {
         Timestamp timeStamp = new Timestamp(date.getTime());
         customer.setCust_createtime(timeStamp);
         int rows = customerService.createCustomer(customer);
-        if(rows > 0){
+        if (rows > 0) {
             return "OK";
-        }else{
+        } else {
             return "FAIL";
         }
     }
+
     @RequestMapping("/customer/getCustomerById")
     @ResponseBody
     public Customer getCustomerById(Integer id) {
         Customer customer = customerService.getCustomerById(id);
         return customer;
     }
+
     @RequestMapping("/customer/update")
     @ResponseBody
     public String customerUpdate(Customer customer) {
         int rows = customerService.updateCustomer(customer);
-        if(rows > 0){
+        if (rows > 0) {
             return "OK";
-        }else{
+        } else {
             return "FAIL";
         }
     }
@@ -99,13 +99,12 @@ public class CustomerController {
     @ResponseBody
     public String customerDelete(Integer id) {
         int rows = customerService.deleteCustomer(id);
-        if(rows > 0){
+        if (rows > 0) {
             return "OK";
-        }else{
+        } else {
             return "FAIL";
         }
     }
-
 
 
 }
